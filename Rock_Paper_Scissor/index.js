@@ -1,55 +1,50 @@
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+let you;
+let opponent;
+let opponentScore=0;
+let yourScore =0;
 
+let yourchoice = document.querySelector('.yourMove');
+let cpMove = document.querySelector('.opponentMove');
+let result = document.querySelector('.result');
+let UserScore = document.querySelector('.yourScore');
+let computerScore = document.querySelector('.oppoScore');
+function computerMove(){
+    let choices =["Rock","Paper","Scissors"]
+    opponent = choices[Math.floor(Math.random() * 3)];
+    cpMove.textContent = "Computer move: "+ opponent;
+    
+}
+const moves = document.querySelectorAll(".choices");
 
-    for (let i = 0; i < 5; i++) {
-        const x = prompt("Rock,paper or scissors?");
-        let input = x.toLowerCase();
-        let cp = computerPlay();
-        playRound(input, cp);
-        console.log("Your score- " + playerScore + "    Computer Score- " + computerScore);
-    }
-
-    function computerPlay() {
-        let choiceArray = ["rock", "paper", "scissors"];
-        let randomChoice = Math.floor(Math.random() * choiceArray.length);
-        return choiceArray[randomChoice];
-    }
-
-
-    function playRound(playerSelection, computerSelection) {
-        //All winnig choices
-        if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
-            playerScore += 1;
-            let win = "You win " + playerSelection + " beats " + computerSelection;
-            return win;
+moves.forEach(button => button.addEventListener("click",() => {
+    you = button.textContent;
+    yourchoice.textContent = `Player move:  ${you}`
+    computerMove();
+    result.textContent = checkWinner();
+    UserScore.textContent = yourScore;
+    computerScore.textContent = opponentScore;
+    
+    function checkWinner(){
+        if(opponent==you){
+            return "Draw!"
+        } else if(opponent=="Rock"&&you=="Paper"||opponent=="Paper"&&you=="Scissors"||opponent=="Scissors"&&you=="Rock"){
+            yourScore++;
+            return "You win!"
         }
-        //All losing choices
-        if ((playerSelection === "scissors" && computerSelection === "rock") || (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors")) {
-            computerScore += 1;
-            let lose = "You loose" + computerSelection + " beats " + playerSelection;
-            return lose;
-        } else {
-            let tie = "Match tie";
-            return tie;
+        else {
+            opponentScore++;
+            return "Computer Won!"
         }
+        
+        
     }
+    
+}))
+let playAgain = document.querySelector('.playAgain');
+playAgain.addEventListener('click',resetGame)
 
-    //To declare winner
-    if (computerScore > playerScore) {
-        console.log("You Lost \n Looser!");
-    }
-    if (computerScore < playerScore) {
-        console.log("You Won \n Yaay!");
-    }
-    if (computerScore === playerScore) {
-        console.log("Game tie");
-    }
-
-
-
-
+function resetGame(){
+    yourScore=0;
+    opponentScore=0;
 
 }
-game();
