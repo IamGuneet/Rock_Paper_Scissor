@@ -1,18 +1,31 @@
 body{
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:lightpink;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace;
+  background-color:rgb(1, 1, 1);
+  color: aliceblue;
   border: 5px solid white;
   border-radius: 50px;
 }
 .title{
-    
+padding: 20px;
+    margin-top: 20px;
+    font-size: 2rem;
     display: flex;
+    text-decoration:line-through solid rgb(226, 255, 82);
     flex-direction: column;
     align-items: center;
+    border: 2px solid rgb(181, 23, 23);
+    color: aliceblue;
+    border-radius: 30px;
 }
-.head{
+.condition{
+    font-size: 1.8rem;
+    color: aliceblue;
+    text-decoration: underline;
+}
+.head,.condition{
     align-self: center;
         display: flex;
      flex-direction: column;
@@ -27,31 +40,39 @@ body{
 }
 
 .yourMove{
+    padding: 2px;
+    color: aliceblue;
     margin-top: 10px;
-    border: 2px solid white;
-    border-radius: 100px;
+    border: 2px solid greenyellow;
+    border-radius: 10px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     align-self: center;
+    font-family: monospace;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 240px;
-    width: 240px;
-    font-size: larger;
+    color: greenyellow;
+    height: 140px;
+    width: 300px;
+    font-size: 1.3rem;
     
 }
 .opponentMove{
     margin-bottom: 5px0;
-    border: 2px solid white;
-    border-radius: 100px;
+    border: 2px solid orange;
+    border-radius: 10px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     align-self: center;
     display: flex;
+    color: orange;
     align-items: center;
+    font-family: monospace;
     justify-content: center;
-    font-size: larger;
-    height: 240px;
-    width: 240px;
+    height: 140px;
+    width: 300px;
+    font-size: 1.3rem;
+    padding: 2px;
+
     /* background-color: black; */
 }
 .btns{ margin-top: 10px;
@@ -61,19 +82,48 @@ body{
     align-self: center;
     width: 240px;
     height: 30px;
+    gap: 30px;
     
 }
 .result{
-    margin-top: 10px;
-    font-size:xx-large;
+    margin: 25px;
+    border: 1px solid yellow;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 2rem;
     align-self: center;
 }
 h1{
     align-self: center;
     margin: 0px;
+
 }
 
 button{
-    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 30px;
     border-color: white;
+}
+button:hover{
+    background-color: black;
+    border: solid black;
+    color: aliceblue;
+}
+.score{ 
+    margin: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: baseline;
+    gap: 10px;
+}
+.output{
+    text-decoration: underline seagreen;
+    font-size: 1.5rem;
+}
+.display{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }

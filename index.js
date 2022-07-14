@@ -1,7 +1,7 @@
 let you;
 let opponent;
 let opponentScore=0;
-let yourScore =0;
+let yourScore= 0;
 
 let yourchoice = document.querySelector('.yourMove');
 let cpMove = document.querySelector('.opponentMove');
@@ -23,16 +23,21 @@ moves.forEach(button => button.addEventListener("click",() => {
     result.textContent = checkWinner();
     UserScore.textContent = yourScore;
     computerScore.textContent = opponentScore;
+     if (yourScore == 5) {
+        result.textContent = "You won the game! "
+     } if (opponentScore == 5) {
+        result.textContent ="Computer won, you lose..."
+     }
     
     function checkWinner(){
         if(opponent==you){
             return "Draw!"
         } else if(opponent=="Rock"&&you=="Paper"||opponent=="Paper"&&you=="Scissors"||opponent=="Scissors"&&you=="Rock"){
-            yourScore++;
+            yourScore +=1;
             return "You win!"
         }
         else {
-            opponentScore++;
+            opponentScore +=1;
             return "Computer Won!"
         }
         
@@ -41,10 +46,11 @@ moves.forEach(button => button.addEventListener("click",() => {
     
 }))
 let playAgain = document.querySelector('.playAgain');
-playAgain.addEventListener('click',resetGame)
+playAgain.addEventListener('click', resetGame);
 
 function resetGame(){
-    yourScore=0;
-    opponentScore=0;
-
+    yourScore = 0;
+    opponentScore = 0;
+    UserScore.textContent = yourScore;
+    computerScore.textContent = opponentScore;
 }
